@@ -31,7 +31,7 @@ func Parse(ver string) (GoVersion, bool) {
 		return GoVersion{-1, 0, 0, 0, 0, ""}, true
 	}
 
-	if strings.HasPrefix(ver, "go") {
+	if strings.HasPrefix(ver, "go") || strings.Contains(ver, "appengine") {
 		ver := strings.Split(ver, " ")[0]
 		v := strings.SplitN(ver[2:], ".", 4)
 		switch len(v) {
